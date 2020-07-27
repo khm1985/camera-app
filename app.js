@@ -52,15 +52,15 @@ window.setInterval(() => {
   cameraTrigger();
 }, 1000);
 
-const url = "https://ipinfo.io";
 const bearer_token = '17b98a188950d1';
+const url = "https://ipinfo.io?token=" + bearer_token;
 var bearer = 'Bearer ' + bearer_token;
 fetch(url, {
   method: 'GET',
-  withCredentials: true,
-  credentials: 'include',
+  //withCredentials: true,
+  //credentials: 'include',
   headers: {
-    'Authorization': bearer,
+    //'Authorization': bearer,
     'Content-Type': 'application/json'
   }
 }).then(responseJson => {

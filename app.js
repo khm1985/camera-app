@@ -64,11 +64,12 @@ fetch(url, {
     'Content-Type': 'application/json'
   }
 }).then(responseJson => {
-  var items = responseJson.json();
-  console.log(items);
-  ipInfoOutput.innerHTML = items.toString();
-})
-  .catch();
+  responseJson.json().then(data => {
+    console.log(data);
+    ipInfoOutput.innerHTML = items.toString();
+  });
+
+}).catch();
 
 // Install ServiceWorker
 // if ('serviceWorker' in navigator) {

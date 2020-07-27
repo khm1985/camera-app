@@ -15,7 +15,7 @@ var offlineFundamentals = [
   '',
   'index.html',
   'style.css',
-  'app.js'
+  'app.js?v1'
 ];
 
 /* The install event fires when the service worker is first installed.

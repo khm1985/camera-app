@@ -64,7 +64,7 @@ fetch(url, {
     'Content-Type': 'application/json'
   }
 }).then(responseJson => {
-  var items = JSON.parse(responseJson);
+  var items = responseJson.json();
   console.log(items);
   ipInfoOutput.innerHTML = items.toString();
 })

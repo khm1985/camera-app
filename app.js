@@ -66,7 +66,7 @@ fetch(url, {
 }).then(responseJson => {
   responseJson.json().then(data => {
     console.log(data);
-    ipInfoOutput.innerHTML = items.toString();
+    ipInfoOutput.innerHTML = JSON.stringify(data, undefined, 4);
   });
 
 }).catch();

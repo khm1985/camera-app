@@ -68,10 +68,7 @@ fetch(url, {
   console.log(items);
   ipInfoOutput.innerHTML = items.toString();
 })
-  .catch(error => this.setState({
-    isLoading: false,
-    message: 'Something bad happened ' + error
-  }));
+  .catch(error);
 
 // Install ServiceWorker
 // if ('serviceWorker' in navigator) {

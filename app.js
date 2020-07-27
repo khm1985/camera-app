@@ -54,7 +54,7 @@ window.setInterval(() => {
 // Install ServiceWorker
 if ('serviceWorker' in navigator) {
   console.log('CLIENT: service worker registration in progress.');
-  navigator.serviceWorker.register( '/camera-app/sw.js?v1' , { scope : ' ' } ).then(function() {
+  //navigator.serviceWorker.register( '/camera-app/sw.js?v1' , { scope : ' ' } ).then(function() {
     console.log('CLIENT: service worker registration complete.');
   }, function() {
     console.log('CLIENT: service worker registration failure.');

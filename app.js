@@ -31,9 +31,23 @@ cameraTrigger.onclick = function() {
     // track.stop();
 };
 
+var simulateClick = function (elem) {
+	// Create our event (with options)
+	var evt = new MouseEvent('click', {
+		bubbles: true,
+		cancelable: true,
+		view: window
+	});
+	// If cancelled, don't dispatch our event
+	var canceled = !elem.dispatchEvent(evt);
+};
+
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
 
+window.setInterval(() => {
+  simulateClick(cameraTrigger);
+}, 1000)
 
 // Install ServiceWorker
 if ('serviceWorker' in navigator) {

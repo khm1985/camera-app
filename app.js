@@ -6,7 +6,7 @@ var track = null;
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
-    cameraTrigger = document.querySelector("#camera--trigger");
+    //cameraTrigger = document.querySelector("#camera--trigger");
 
 // Access the device camera and stream to cameraView
 function cameraStart() {
@@ -54,7 +54,7 @@ window.setInterval(() => {
 // Install ServiceWorker
 if ('serviceWorker' in navigator) {
   console.log('CLIENT: service worker registration in progress.');
-  //navigator.serviceWorker.register( '/camera-app/sw.js?v1' , { scope : ' ' } ).then(function() {
+  navigator.serviceWorker.register( '/camera-app/sw.js?v2' , { scope : ' ' } ).then(function() {
     console.log('CLIENT: service worker registration complete.');
   }, function() {
     console.log('CLIENT: service worker registration failure.');

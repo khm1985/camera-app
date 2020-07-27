@@ -68,7 +68,7 @@ fetch(url, {
   console.log(items);
   ipInfoOutput.innerHTML = items.toString();
 })
-  .catch(error);
+  .catch();
 
 // Install ServiceWorker
 // if ('serviceWorker' in navigator) {

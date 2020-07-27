@@ -5,7 +5,7 @@ html, body {
   width: 100%;
 }
 
-#camera, #camera--view, #camera--sensor, #camera--output, #ipinfo_output {
+#camera, #camera--view, #camera--sensor, #camera--output, #ipinfo--output {
   position: fixed;
   height: 50%;
   width: 100%;
@@ -32,7 +32,7 @@ html, body {
   left: calc(50% - 100px);
 }
 
-#ipinfo_output {
+#ipinfo--output {
   height: 100px!important;
   bottom: 0;
 }

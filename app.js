@@ -41,8 +41,7 @@ function cameraTrigger() {
   var params = {
     image: cameraOutputSrcBase64,
     subject_id: 'subtest1',
-    gallery_name: 'gallerytest1',
-    store: true
+    gallery_name: 'gallerytest1'
   };
 
   client.enroll(params)   // return Promise

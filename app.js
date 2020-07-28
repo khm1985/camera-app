@@ -35,7 +35,7 @@ function cameraTrigger() {
   cameraOutput.src = cameraSensor.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
 
-  var cameraOutputSrcBase64 = ameraOutput.src.toString().replace('data:image/jpeg;base64,', '');
+  var cameraOutputSrcBase64 = cameraOutput.src.toString().replace('data:image/jpeg;base64,', '');
 
   var params = {
     image: cameraOutputSrcBase64,

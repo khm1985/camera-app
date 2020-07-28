@@ -11,7 +11,8 @@ const cameraView = document.querySelector("#camera--view"),
   cameraSensor = document.querySelector("#camera--sensor"),
   //cameraTrigger = document.querySelector("#camera--trigger");
   ipInfoOutput = document.querySelector("#ipinfo--output"),
-  kairosOutput = document.querySelector("#kairos--output");
+  kairosOutput = document.querySelector("#kairos--output"),
+  kairosOutput2 = document.querySelector("#kairos--output2");
 
 // Access the device camera and stream to cameraView
 function cameraStart() {
@@ -40,7 +41,8 @@ function cameraTrigger() {
   var params = {
     image: cameraOutputSrcBase64,
     subject_id: 'subtest1',
-    gallery_name: 'gallerytest1'
+    gallery_name: 'gallerytest1',
+    store: true
   };
 
   client.enroll(params)   // return Promise
@@ -50,13 +52,29 @@ function cameraTrigger() {
     //  }
     .then(function (result) {
       kairosOutput.innerHTML = JSON.stringify(result.body, undefined, 4);
-    })
-    // err -> array: jsonschema validate errors
-    //        or throw Error
-    .catch(function (err) { });
-  // track.stop();
-};
 
+      fetch('https://api.kairos.com/v2/analytics/' + result.body.face_id, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'app_id': '2ca5d8f9',
+          'app_key': 'd43201f27ced5053559410fba987f2a4'
+        }
+      }).then(function (res) {
+        if (res.status === 403) {
+          var t = {
+            status: res.status,
+            body: null
+          };
+        }
+        res.json().then(function (result) {
+          kairosOutput2.innerHTML = JSON.stringify(result, undefined, 4);
+        });
+      })
+        .catch(function (err) { });
+      // track.stop();
+    });
+}
 var simulateClick = function (elem) {
   // Create our event (with options)
   var evt = new MouseEvent('click', {

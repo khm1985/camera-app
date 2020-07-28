@@ -5,7 +5,7 @@ html, body {
   width: 100%;
 }
 
-#camera, #camera--view, #camera--sensor, #camera--output, #ipinfo--output, #kairos--output {
+#camera, #camera--view, #camera--sensor, #camera--output, #ipinfo--output, #kairos--output, #kairos--output2 {
   position: fixed;
   height: 50%;
   width: 100%;
@@ -39,7 +39,15 @@ html, body {
 
 #kairos--output {
   height: 25%;
+  width: 50%;
   bottom: 25%;
+}
+
+#kairos--output2 {
+  height: 25%;
+  width: 50%;
+  bottom: 25%;
+  right: 0;
 }
 
 .taken {

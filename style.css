@@ -33,7 +33,13 @@ html, body {
 }
 
 #ipinfo--output {
+  height: 25%;
   bottom: 0;
+}
+
+#kairos--output {
+  height: 25%;
+  bottom: 25%;
 }
 
 .taken {

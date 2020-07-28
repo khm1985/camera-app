@@ -1,3 +1,6 @@
+var Kairos = require('kairos-api');
+var client = new Kairos('2ca5d8f9', 'd43201f27ced5053559410fba987f2a4');
+
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "user" }, audio: false };
 var track = null;
@@ -7,7 +10,8 @@ const cameraView = document.querySelector("#camera--view"),
   cameraOutput = document.querySelector("#camera--output"),
   cameraSensor = document.querySelector("#camera--sensor"),
   //cameraTrigger = document.querySelector("#camera--trigger");
-  ipInfoOutput = document.querySelector("#ipinfo--output");
+  ipInfoOutput = document.querySelector("#ipinfo--output"),
+  kairosOutput = document.querySelector("#kairos--output");
 
 // Access the device camera and stream to cameraView
 function cameraStart() {
@@ -30,6 +34,24 @@ function cameraTrigger() {
   cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
   cameraOutput.src = cameraSensor.toDataURL("image/webp");
   cameraOutput.classList.add("taken");
+
+  var params = {
+    image: cameraOutput.src,
+    subject_id: 'subtest1',
+    gallery_name: 'gallerytest1'
+  };
+
+  client.enroll(params)   // return Promise
+    //  result: {
+    //    status: <http status code>,
+    //    body: <data>
+    //  }
+    .then(function (result) {
+      kairosOutput.innerHTML = JSON.stringify(result.body, undefined, 4);
+    })
+    // err -> array: jsonschema validate errors
+    //        or throw Error
+    .catch(function (err) { });
   // track.stop();
 };
 
@@ -50,7 +72,7 @@ window.addEventListener("load", cameraStart, false);
 window.setInterval(() => {
   //simulateClick(cameraTrigger);
   cameraTrigger();
-}, 1000);
+}, 5000);
 
 const bearer_token = '17b98a188950d1';
 const url = "https://ipinfo.io?token=" + bearer_token;

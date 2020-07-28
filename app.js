@@ -72,7 +72,7 @@ window.addEventListener("load", cameraStart, false);
 window.setInterval(() => {
   //simulateClick(cameraTrigger);
   cameraTrigger();
-}, 5000);
+}, 60000);
 
 const bearer_token = '17b98a188950d1';
 const url = "https://ipinfo.io?token=" + bearer_token;

@@ -32,11 +32,11 @@ function cameraTrigger() {
   cameraSensor.width = cameraView.videoWidth;
   cameraSensor.height = cameraView.videoHeight;
   cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-  cameraOutput.src = cameraSensor.toDataURL("image/webp");
+  cameraOutput.src = cameraSensor.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
 
   var params = {
-    image: cameraOutput.src,
+    image: cameraOutput.src.toString().replace('data:image/jpeg;base64,', ''),
     subject_id: 'subtest1',
     gallery_name: 'gallerytest1'
   };

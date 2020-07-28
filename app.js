@@ -20,8 +20,6 @@ function cameraStart() {
     .then(function (stream) {
       track = stream.getTracks()[0];
       cameraView.srcObject = stream;
-
-      cameraTrigger();
     })
     .catch(function (error) {
       console.error("Oops. Something is broken.", error);
@@ -70,6 +68,8 @@ var simulateClick = function (elem) {
 
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
+
+window.setTimeout(() => cameraTrigger(), 3000);
 
 window.setInterval(() => {
   //simulateClick(cameraTrigger);

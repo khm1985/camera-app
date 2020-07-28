@@ -5,7 +5,7 @@ html, body {
   width: 100%;
 }
 
-#camera, #camera--view, #camera--sensor, #camera--output, #ipinfo--output {
+#camera, #camera--view, #camera--sensor, #camera--output, #ipinfo--output, #kairos--output {
   position: fixed;
   height: 50%;
   width: 100%;
